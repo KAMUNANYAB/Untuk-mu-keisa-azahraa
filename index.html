@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>For You, My Everything ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#08070a;color:#eee;overflow-x:hidden;font-family:'Cormorant Garamond',serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:radial-gradient(circle at 20% 30%,#fff 0 1px,transparent 1.5px),radial-gradient(circle at 70% 80%,#d46a94 0 1px,transparent 1.5px);background-size:90px 110px,130px 150px;mix-blend-mode:screen}
+.petal{position:fixed;top:-40px;z-index:3;pointer-events:none;animation:fall linear forwards;opacity:.7}
+@keyframes fall{to{transform:translate3d(var(--x),110vh,0) rotate(300deg);opacity:0}}
+.progress{position:fixed;top:0;left:0;height:2px;background:#d75b87;width:0;z-index:20;box-shadow:0 0 12px #d75b87}
+main{max-width:560px;margin:auto;position:relative}
+section{min-height:100vh;padding:70px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative}
+.kicker{font:500 11px/1.5 Montserrat,sans-serif;letter-spacing:6px;text-transform:uppercase;color:#b85b7b;margin-bottom:18px}
+h1,h2{font-weight:400;margin:0}
+h1{font-size:48px;line-height:1.02}
+h2{font-size:40px;line-height:1.08}
+em{color:#e681a7;font-style:italic}
+.sub{font:300 13px/2 Montserrat,sans-serif;letter-spacing:2px;color:#a99ca4;max-width:390px;margin-top:22px}
+.flowers{position:absolute;top:35px;left:0;right:0;font-size:27px;letter-spacing:8px;animation:sway 4s ease-in-out infinite}
+@keyframes sway{50%{transform:translateY(8px)}}
+.gift{width:210px;height:160px;border:1px solid #87435d;border-radius:14px;position:relative;margin:45px 0 55px;background:linear-gradient(135deg,#24121d,#110d13);box-shadow:0 0 55px #8c2e52aa;cursor:pointer;transition:.35s}
+.gift:hover{transform:scale(1.03)}
+.gift:before{content:"";position:absolute;left:calc(50% - 14px);top:0;width:28px;height:100%;background:#d94f7e}
+.gift:after{content:"";position:absolute;top:calc(50% - 13px);left:0;width:100%;height:26px;background:#d94f7e}
+.ribbon{position:absolute;inset:0;display:grid;place-items:center;font-size:32px;z-index:1}
+.tap{font:500 11px Montserrat,sans-serif;letter-spacing:5px;color:#bda9b2;position:absolute;top:-30px;width:100%}
+.cardgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;margin-top:35px}
+.flower-card,.reason{background:linear-gradient(145deg,#171117,#0d0b0f);border:1px solid #30232c;border-radius:14px;padding:28px 14px;min-height:185px;display:flex;flex-direction:column;justify-content:center;align-items:center;transition:.3s}
+.flower-card:hover,.reason:hover{border-color:#78445a;transform:translateY(-3px);box-shadow:0 10px 30px #000}
+.flower-card .emoji{font-size:46px;margin-bottom:15px}
+.flower-card span{font-size:18px;color:#d9c3cd}
+.reason{min-height:220px;margin:12px 0;width:100%;padding:30px}
+.reason .emoji{font-size:42px;margin-bottom:16px}
+.reason h3{font-size:26px;color:#df9bb5;margin:0 0 12px;font-weight:400}
+.reason p,.letter p{font-size:19px;line-height:1.9;color:#bcb0b8;margin:0}
+.letter{width:100%;max-width:500px}
+.letter p{margin:28px 0;text-align:center}
+.poem-intro{width:100%;max-width:500px;margin:0 auto 55px}
+.poem-intro .poem-title{font-size:30px;line-height:1.2;font-weight:600;color:#df9bb5;margin:0 0 24px}
+.poem-intro p{font-size:19px;line-height:1.9;color:#bcb0b8;margin:22px 0;text-align:center}
+.poem-intro .poem-signature{font:400 12px Montserrat,sans-serif;letter-spacing:4px;color:#d6c3cc;margin-top:28px}
+@media(max-width:430px){h1{font-size:41px}h2{font-size:34px}.sub{font-size:11px}.reason p,.letter p{font-size:17px}.flower-card{min-height:170px}
+.poem-intro .poem-title{font-size:26px}.poem-intro p{font-size:17px}}
+.heart{font-size:55px;filter:drop-shadow(0 0 12px #ff4f91);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{transform:scale(1.12)}}
+.final{padding-bottom:100px}
+.signature{font:400 12px Montserrat,sans-serif;letter-spacing:7px;color:#d6c3cc;margin-top:18px}
+button{border:1px solid #754056;background:#160e14;color:#e8b4c8;border-radius:30px;padding:13px 24px;font:400 12px Montserrat,sans-serif;letter-spacing:2px;cursor:pointer}
+button:hover{background:#28121e}
+.hidden{display:none}
+@media(max-width:430px){h1{font-size:41px}h2{font-size:34px}.sub{font-size:11px}.reason p,.letter p{font-size:17px}.flower-card{min-height:170px}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
+<main>
+<section id="home">
+  <div class="flowers">🌸 🌺 🌷 🌹 🌸 🌷 🌺</div>
+  <div class="tap">✦ TAP TO OPEN ✦</div>
+  <div class="gift" id="gift" aria-label="Buka hadiah"><div class="ribbon">🎁</div></div>
+  <h1>For You, My <em>Everything</em></h1>
+  <div class="sub">Every petal holds a whisper of how much you mean to me.</div>
+  <button id="openBtn" style="margin-top:35px">OPEN THE GIFT ♡</button>
+</section>
+
+<section id="letter">
+  <div class="kicker">Surat dari hatiku</div>
+  <h2>Kamu adalah jawaban dari doa yang bahkan tak pernah aku ucapkan.</h2>
+  <div class="letter">
+    <p>Sebelum kamu hadir, aku tidak tahu ada ruang yang kosong di dalam diriku. Tapi begitu kamu ada, tiba-tiba segalanya terasa lengkap — tawamu, caramu memandangku, bahkan diammu pun sudah cukup untuk membuat hatiku penuh.</p>
+    <p>Bunga-bunga ini tidak akan pernah cukup untuk mewakili betapa berartinya kamu. Tapi biar setiap kelopaknya menjadi bisikan kecil dari semua rasa yang selalu gagal kukatakan.</p>
+  </div>
+</section>
+
+<section id="reasons">
+  <div class="poem-intro">
+    <h3 class="poem-title">Rekah Senyummu, Leburkan Jiwaku.</h3>
+    <p>Ketika bibirmu melengkung, ada sesuatu yang diam-diam mengakar di sanubari seakan semesta membisikkan satu alasan agar abadi senyumanmu.</p>
+    <p>Reda gejolak jiwaku tatkala tawamu mengisi sunyi di ruang kecil hidupku, seribu saraf seolah berkelindan dalam riuh resa, sesaat dirimu memberikan senyuman indah terbenam di kalbuku.</p>
+    <p>Jiwaku seakan mendamba merengkuh anganmu, melafalkan pengakuan yang lama terpendam bahwasanya aku mendamba sunyi yang hanya mengenal kita berdua tatkala hari bergulir, membawa waktu semakin jauh semata-mata demi menghadiahkan waktu hanya untukmu.</p>
+    <div class="poem-signature">Tertanda, Pirman</div>
+
+    <h3 class="poem-title" style="margin-top:55px">Overthinkingku yang Selalu Kau Anggap Sepele</h3>
+    <p>Aku overthinking, bukan karena tak percaya,<br>bukan pula karena ingin membatasi langkahmu.<br>Aku hanya terlalu takut kehilangan,<br>hingga hal-hal kecil tumbuh menjadi tanya<br>yang tak pernah berani kusampaikan dengan tenang.</p>
+    <p>Kau kira aku sedang mencari-cari kesalahan,<br>padahal aku sedang berperang<br>dengan pikiranku sendiri.<br>Mencoba meyakinkan hati<br>bahwa tidak semua yang kulihat<br>harus menjadi alasan untuk takut.</p>
+    <p>Namun setiap kali aku bertanya,<br>kau menganggapku berlebihan.<br>Setiap kali aku diam,<br>kau mengira aku tak peduli.<br>Padahal di balik diamku,<br>ada seribu kemungkinan<br>yang berulang kali menyiksa pikiranku.</p>
+    <p>Aku hanya ingin kau mengerti,<br>bahwa overthinkingku bukanlah tuduhan.<br>Ia hanyalah rasa takut<br>yang salah memilih cara untuk berbicara.</p>
+    <p>Dan ketika pikiranku mulai berisik,<br>kau justru memilih mengabaikannya.<br>Kau mungkin menganggapnya sepele,<br>namun kau tak pernah tahu<br>betapa kerasnya aku berusaha<br>menenangkan diriku sendiri.</p>
+    <p>Aku terus bertanya dalam diam,<br>“Apakah aku masih cukup untukmu?”<br>“Apakah ada sesuatu yang berubah?”<br>“Apakah suatu hari nanti<br>kau akan menemukan seseorang<br>yang lebih baik dariku?”</p>
+    <p>Pertanyaan-pertanyaan itu<br>mungkin terdengar sederhana bagimu.<br>Tapi bagiku,<br>ia bisa tinggal berjam-jam di kepala,<br>bahkan ketika aku sedang mencoba tersenyum<br>seolah semuanya baik-baik saja.</p>
+    <p>Aku tidak meminta kau membaca seluruh isi kepalaku.<br>Aku hanya ingin, sekali saja,<br>ketika aku berkata “aku takut kehilanganmu,”<br>kau tidak menerjemahkannya sebagai tuduhan.</p>
+    <p>Sebab mungkin yang sebenarnya kubutuhkan<br>bukan penjelasan panjang,<br>bukan janji yang berulang,<br>melainkan satu kalimat sederhana:</p>
+    <p>“Aku di sini.<br>Jangan takut, aku tidak akan meninggalkanmu.”</p>
+    <p>Karena terkadang,<br>seseorang yang terlalu banyak berpikir<br>bukanlah seseorang yang ingin mencari masalah.</p>
+    <p>Melainkan seseorang<br>yang terlalu mencintai,<br>terlalu takut kehilangan,<br>dan terlalu sering dibiarkan<br>berperang sendirian dengan pikirannya sendiri.</p>
+    <p>Dan mungkin suatu hari nanti,<br>kau akan mengerti<br>bahwa hal yang selama ini kau anggap sepele<br>adalah sesuatu yang setiap malam<br>diam-diam menghancurkan ketenanganku.</p>
+    <div class="poem-signature">— Pirman</div>
+  </div>
+
+  <div class="kicker">A thousand reasons why</div>
+  <h2>Why I <em>Love You</em></h2>
+  <div class="reason"><div class="emoji">🌹</div><h3>Your Smile</h3><p>It lights up every room and every corner of my heart simultaneously.</p></div>
+  <div class="reason"><div class="emoji">💫</div><h3>Your Soul</h3><p>Rare, genuine, and more beautiful than any flower ever grown.</p></div>
+  <div class="reason"><div class="emoji">🌷</div><h3>Your Presence</h3><p>Somehow, simply having you near makes ordinary moments feel special.</p></div>
+</section>
+
+<section id="flowers">
+  <div class="kicker">Flowers chosen for you</div>
+  <h2>Every Flower Has a <em>Meaning</em></h2>
+  <div class="cardgrid">
+    <div class="flower-card"><div class="emoji">🌹</div><span>Rose</span></div>
+    <div class="flower-card"><div class="emoji">🌸</div><span>Cherry Blossom</span></div>
+    <div class="flower-card"><div class="emoji">🪷</div><span>Lotus</span></div>
+    <div class="flower-card"><div class="emoji">🌺</div><span>Hibiscus</span></div>
+    <div class="flower-card"><div class="emoji">🌼</div><span>Daisy</span></div>
+    <div class="flower-card"><div class="emoji">🌷</div><span>Tulip</span></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="kicker">Always & forever</div>
+  <h2>Thank You For <em>Choosing Me</em></h2>
+  <div class="letter">
+    <p>Kamu mengajariku arti mencintai dengan tulus, tertawa tanpa takut, dan merasa aman hanya dengan kehadiranmu.</p>
+    <p>Setiap pagi yang aku bangun di sisimu adalah hadiah. Setiap detik bersamamu adalah kenangan yang akan selalu aku jaga.</p>
+    <p>Tidak ada kata yang cukup — tapi percayalah, seluruh hatiku bicara satu hal yang sama setiap harinya: aku sangat bersyukur kamu ada.</p>
+  </div>
+  <div class="heart">💗</div>
+  <div class="signature">DIBUAT DENGAN SEPENUH CINTA · HANYA UNTUKMU 🌸</div>
+  <div class="signature" style="margin-top:22px">🌸 &nbsp; S E L A L U &nbsp; &amp; &nbsp; S E L A M A N Y A &nbsp; 🌸</div>
+</section>
+</main>
+<script>
+const progress=document.getElementById('progress');
+addEventListener('scroll',()=>{let h=document.documentElement;progress.style.width=(scrollY/(h.scrollHeight-innerHeight)*100)+'%'});
+const gift=document.getElementById('gift'), btn=document.getElementById('openBtn');
+function openGift(){const m=document.getElementById('bgMusic'); m.volume=0.65; m.play().catch(()=>{}); document.getElementById('letter').scrollIntoView({behavior:'smooth'}); burst()}
+gift.onclick=openGift;btn.onclick=openGift;
+function burst(){
+  for(let i=0;i<18;i++){let p=document.createElement('div');p.className='petal';p.textContent=['🌸','🌷','🌺','🌹','✨'][Math.floor(Math.random()*5)];
+  p.style.left=Math.random()*100+'vw';p.style.setProperty('--x',(Math.random()*180-90)+'px');p.style.animationDuration=(3+Math.random()*4)+'s';p.style.fontSize=(12+Math.random()*16)+'px';document.body.appendChild(p);setTimeout(()=>p.remove(),8000)}
+}
+setInterval(()=>{let p=document.createElement('div');p.className='petal';p.textContent=['🌸','🌷','✨'][Math.floor(Math.random()*3)];p.style.left=Math.random()*100+'vw';p.style.setProperty('--x',(Math.random()*160-80)+'px');p.style.animationDuration=(5+Math.random()*5)+'s';p.style.fontSize=(10+Math.random()*13)+'px';document.body.appendChild(p);setTimeout(()=>p.remove(),11000)},900);
+</script>
+</body>
+</html>
